@@ -48,14 +48,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('DOMContentLoaded', () => {
     const footerNavItems = document.querySelectorAll('.footer-nav-item');
     footerNavItems.forEach(item => {
-        if (!item.querySelector('a')) { // Only for numbered items, not "How to Buy"
+        const numberSpan = item.querySelector('.nav-number');
+        if (numberSpan && (numberSpan.textContent.trim() === '1' || numberSpan.textContent.trim() === '4')) {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => { e.preventDefault(); });
+        } else if (numberSpan && numberSpan.textContent.trim() === '2') {
             item.addEventListener('click', () => {
-                const number = item.querySelector('.nav-number').textContent;
-                const targetId = `block${number}`;
-                const targetElement = document.getElementById(targetId);
+                const targetElement = document.getElementById('block1');
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
+            });
+        } else if (numberSpan && numberSpan.textContent.trim() === '3') {
+            item.addEventListener('click', () => {
+                const targetElement = document.getElementById('block2');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        } else if (item.textContent.trim().toLowerCase().includes('how to buy')) {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('https://jup.ag', '_blank', 'noopener');
             });
         }
     });
@@ -258,3 +273,19 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style); 
+
+// Mobile burger menu toggle for footer nav
+const mobileBurgerMenu = document.querySelector('.mobile-burger-menu');
+if (mobileBurgerMenu) {
+    const burgerBtn = mobileBurgerMenu.querySelector('.hamburger');
+    const mobileFooterNav = mobileBurgerMenu.querySelector('.mobile-footer-nav');
+    burgerBtn.addEventListener('click', () => {
+        mobileBurgerMenu.classList.toggle('active');
+    });
+    // Закрытие меню при клике на пункт
+    mobileFooterNav.querySelectorAll('.footer-nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            mobileBurgerMenu.classList.remove('active');
+        });
+    });
+} 
