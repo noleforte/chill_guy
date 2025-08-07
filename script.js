@@ -249,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typewriter animation for block3
     const typewriterEl = document.getElementById('typewriter');
     const typewriterText = 'JUST A TROLLGUY';
+    const typewriterContainer = document.querySelector('#block3 .container');
     if (typewriterEl) {
         let i = 0;
         function type() {
@@ -257,6 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 i++;
                 setTimeout(type, 90);
             } else {
+                setTimeout(() => {
+                typewriterContainer.style.display = 'none';}, 700);
                 // После окончания анимации выезжает чёрный блок
                 const slideBlock = document.getElementById('slide-black-block');
                 if (slideBlock) {
@@ -271,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }, 400); // небольшая пауза после печати
                 }
+                
             }
         }
         type();

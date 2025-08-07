@@ -677,7 +677,9 @@ body {
     width: 100%;
     text-align: center;
 }
-
+.block {
+    display: block;
+}
 /* Block 1: Chill Guy Scene */
 .chill-guy-scene {
     position: relative;
@@ -1051,9 +1053,33 @@ body {
         gap: 2rem;
     }
     #ca-value{
-        overflow-wrap: anywhere;
+        font-family: 'VT323', monospace !important;
+        font-size: 19px !important;
+        color: black !important;
+        margin-top: 1.5rem !important;
     }
-
+    .copy-ca-btn{
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        margin-left: 0.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        margin-top: 0.5rem !important;
+    }
+    .copy-ca-btn img{
+        width: 25px !important;
+    height: 25px !important;
+    }
+    .container h1 {
+        font-family: 'VT323', monospace !important;
+        font-size: 0px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 0rem !important;
+        color: black !important;
+    }
     .community-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1420,3 +1446,108 @@ html {
 .slide-icon-dt { bottom: 10%; left: 50%; transform: translate(-50%, 0);}
 .slide-icon-ds { top: 10%; left: 50%; transform: translate(-50%, 0);}
 .slide-icon:hover { transform: scale(1.12); } 
+@media (max-width: 600px) {
+    #block3 {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        bottom: 0 !important;
+        min-height: 110vh !important;
+        margin-top: -68% !important;
+        height: 110vh !important;
+    }
+    #block3 .container {
+        order: 3;
+    }
+    #slide-black-block {
+        order: 2;
+    }
+    #slide-icons-block {
+        order: 1;
+    }
+    #block3 .container h1,
+    #block3 .container #typewriter {
+        font-size: 2rem !important;
+        text-align: center;
+        word-break: break-word;
+        white-space: normal;
+    }
+    #slide-black-block {
+        background: none !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100vw !important;
+        position: static !important;
+        min-width: 0;
+        min-height: unset;
+        height: auto !important;
+        padding: 0;
+    }
+    .slide-block-main-text {
+        color: #111 !important;
+        background: none !important;
+        position: static !important;
+        text-align: center;
+        width: 90vw;
+        max-width: 90vw;
+        font-size: 33px;
+        line-height: 1.3;
+        padding: 6vw 0 2vw 0;
+        margin: 0 auto;
+        display: block;
+        word-break: break-all;
+        white-space: normal;
+        margin-bottom: 33%;
+    }
+    .slide-block-signature {
+        color: #111 !important;
+        background: none !important;
+        position: static !important;
+        text-align: right;
+        width: 90vw;
+        max-width: 90vw;
+        opacity: 0.7;
+        pointer-events: none;
+        margin: 2vw auto 4vw auto;
+        font-size: 1.5rem !important;
+    }
+    #slide-icons-block {
+        position: static !important;
+        width: 100vw;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: none !important;
+        z-index: 10;
+        pointer-events: auto;
+        animation: fadeInIcons 0.7s 0.1s both;
+        min-height: unset;
+        height: auto;
+        margin-bottom: 2vw;
+        margin-top: 0;
+    }
+    .slide-icon {
+        position: static !important;
+        margin: 0 2vw;
+        width: 50px;
+        height: 50px;
+        transform: none !important;
+    }
+} 
+#block3 .container h1,
+#block3 .container #typewriter {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+@media (max-width: 600px) {
+    #block3 .container h1,
+    #block3 .container #typewriter {
+        text-align: center !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+} 
