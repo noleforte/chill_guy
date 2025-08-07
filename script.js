@@ -18,6 +18,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
@@ -47,11 +48,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Footer navigation functionality
 document.addEventListener('DOMContentLoaded', () => {
     const footerNavItems = document.querySelectorAll('.footer-nav-item');
+    const popupModal = document.getElementById('popup-modal');
+    const popupClose = document.getElementById('popup-close');
+
     footerNavItems.forEach(item => {
         const numberSpan = item.querySelector('.nav-number');
-        if (numberSpan && (numberSpan.textContent.trim() === '1' || numberSpan.textContent.trim() === '4')) {
+        if (numberSpan && numberSpan.textContent.trim() === '1') {
             item.style.cursor = 'pointer';
             item.addEventListener('click', (e) => { e.preventDefault(); });
+        } else if (numberSpan && numberSpan.textContent.trim() === '4') {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (e) => {
+                if (popupModal) popupModal.classList.add('active');
+            });
         } else if (numberSpan && numberSpan.textContent.trim() === '2') {
             item.addEventListener('click', () => {
                 const targetElement = document.getElementById('block1');
@@ -74,6 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    if (popupClose && popupModal) {
+        popupClose.addEventListener('click', () => {
+            popupModal.classList.remove('active');
+        });
+    }
+    if (popupModal) {
+        popupModal.addEventListener('click', (e) => {
+            if (e.target === popupModal) {
+                popupModal.classList.remove('active');
+            }
+        });
+    }
 });
 
 // Copy contract address functionality
@@ -303,3 +325,21 @@ if (mobileBurgerMenu) {
         });
     });
 } 
+
+document.addEventListener('click', function(e) {
+    const item = e.target.closest('.footer-nav-item');
+    console.log('Clicked item:', item);
+    if (item) {
+        const numberSpan = item.querySelector('.nav-number');
+        console.log('numberSpan:', numberSpan ? numberSpan.textContent.trim() : null);
+        if (numberSpan && numberSpan.textContent.trim() === '4') {
+            const popupModal = document.getElementById('popup-modal');
+            if (popupModal) {
+                popupModal.classList.add('active');
+                console.log('Popup opened!');
+            } else {
+                console.log('Popup modal not found');
+            }
+        }
+    }
+}); 
