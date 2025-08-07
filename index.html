@@ -75,7 +75,20 @@
             <video class="block2-bg-video" src="images/TROLLGUY.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="container">
-            <h1 style="font-family: 'VT323', monospace; font-size: xxx-large;">CA: 74Mfb6CsPbnMaVrstLRtsTUrhdWZ6bY1dWMZf4iUpump</h1>
+            <h1 style="font-family: 'VT323', monospace; font-size: xxx-large; display: flex; align-items: flex-start; gap: 1rem; color: black;">
+                CA:
+                <span style="display: flex; flex-direction: column;">
+                    <span id="ca-value" style="font-family: 'VT323', monospace; font-size: xxx-large; color: black;">
+                        74Mfb6CsPbnMaVrstLRtsTUrhdWZ6bY1dWMZf4iUpump
+                    </span>
+                    <div id="copy-success" style="display: none; color: green; font-family: 'VT323', monospace; font-size: xx-large; margin-top: -0.5rem; text-align: center;">
+                        Copied to clipboard!
+                    </div>
+                </span>
+                <button id="copy-ca-btn" style="background: none; border: none; cursor: pointer; padding: 0; margin-left: 0.5rem; display: flex; align-items: center; margin-top: 1.5rem;">
+                    <img src="images/icons/copy.png" alt="Copy" style="width: 32px; height: 32px;">
+                </button>
+            </h1>
         </div>
     </section>
 

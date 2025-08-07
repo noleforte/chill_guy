@@ -210,6 +210,20 @@ document.addEventListener('DOMContentLoaded', () => {
             button.style.transform = 'translateY(0)';
         });
     });
+    // Copy CA button for section 2
+    const copyBtn = document.getElementById('copy-ca-btn');
+    const caValue = document.getElementById('ca-value');
+    const copySuccess = document.getElementById('copy-success');
+    if (copyBtn && caValue && copySuccess) {
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(caValue.textContent.trim()).then(() => {
+                copySuccess.style.display = 'block';
+                setTimeout(() => {
+                    copySuccess.style.display = 'none';
+                }, 2000);
+            });
+        });
+    }
 });
 
 // Parallax effect for hero section
