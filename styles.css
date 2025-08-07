@@ -952,7 +952,12 @@ body {
     color: #9ca3af;
     font-family: 'VT323', monospace;
 }
+@media (min-width: 1440px) and (max-width: 1920px) {
+    .footer-nav {
+        gap: 12.9rem;
+    }
 
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
