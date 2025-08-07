@@ -667,7 +667,10 @@ body {
 }
 
 .block-3 {
-    background: white;
+    position: relative;
+}
+.block-3 .container {
+    overflow: hidden;
 }
 
 .block-content {
@@ -1328,3 +1331,92 @@ html {
         display: block;
     }
 } 
+.slide-block-main-text {
+    font-family: 'VT323', monospace;
+    font-size: xxx-large;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+    padding: 2vw 2vw 5vw 2vw;
+}
+.slide-block-signature {
+    font-family: 'VT323', monospace;
+    font-size: xxx-large;
+    color: #fff;
+    position: absolute;
+    right: 3vw;
+    bottom: 2vw;
+    z-index: 4;
+    opacity: 0.7;
+    pointer-events: none;
+    text-align: right;
+}
+#slide-black-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 100%;
+    background: #111;
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+    pointer-events: none;
+    overflow: hidden;
+}
+.block-3 .container {
+    position: relative;
+    overflow: hidden;
+}
+#slide-black-block.active {
+    transform: translateX(0);
+} 
+#slide-icons-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    height: 100%;
+    display: none;
+    z-index: 5;
+    pointer-events: none;
+}
+#slide-icons-block.active {
+    display: block;
+    animation: fadeInIcons 0.7s 0.1s both;
+}
+@keyframes fadeInIcons {
+    from { opacity: 0; transform: translateX(30px);}
+    to   { opacity: 1; transform: translateX(0);}
+}
+.slide-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    pointer-events: auto;
+    transition: transform 0.2s;
+}
+.slide-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.slide-icon-x  { top: 50%; left: 10%; transform: translate(0, -50%);}
+.slide-icon-tg { top: 50%; right: 10%; transform: translate(0, -50%); }
+.slide-icon-jp { top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.slide-icon-dt { bottom: 10%; left: 50%; transform: translate(-50%, 0);}
+.slide-icon-ds { top: 10%; left: 50%; transform: translate(-50%, 0);}
+.slide-icon:hover { transform: scale(1.12); } 

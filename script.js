@@ -246,6 +246,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // Typewriter animation for block3
+    const typewriterEl = document.getElementById('typewriter');
+    const typewriterText = 'JUST A TROLLGUY';
+    if (typewriterEl) {
+        let i = 0;
+        function type() {
+            if (i <= typewriterText.length) {
+                typewriterEl.textContent = typewriterText.slice(0, i);
+                i++;
+                setTimeout(type, 90);
+            } else {
+                // После окончания анимации выезжает чёрный блок
+                const slideBlock = document.getElementById('slide-black-block');
+                if (slideBlock) {
+                    setTimeout(() => {
+                        slideBlock.classList.add('active');
+                        // После выезда блока показываем иконки
+                        const iconsBlock = document.getElementById('slide-icons-block');
+                        if (iconsBlock) {
+                            setTimeout(() => {
+                                iconsBlock.classList.add('active');
+                            }, 800);
+                        }
+                    }, 400); // небольшая пауза после печати
+                }
+            }
+        }
+        type();
+    }
 });
 
 // Parallax effect for hero section
