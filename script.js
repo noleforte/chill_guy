@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.cursor = 'pointer';
             item.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.open('https://jup.ag/tokens/74Mfb6CsPbnMaVrstLRtsTUrhdWZ6bY1dWMZf4iUpump', '_blank', 'noopener');
+                window.open('https://jup.ag/tokens/5vUgey7kkrfXQzTmrBVHnASFzBK2c6G1RPqH3jpbonk', '_blank', 'noopener');
             });
         }
     });
